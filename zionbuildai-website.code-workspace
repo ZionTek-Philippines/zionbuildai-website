@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../zionbuildai"
+		},
+		{
+			"path": "../../Kaisa/ramcarspendflow"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,11 @@
+<x-landing.page>
+    @include('landing.hero')
+    @include('landing.pain-points')
+    @include('landing.features')
+    @include('landing.suite')
+    @include('landing.how-it-works')
+    @include('landing.ai')
+    @include('landing.proof')
+    @include('landing.faq')
+    @include('landing.cta')
+</x-landing.page>
