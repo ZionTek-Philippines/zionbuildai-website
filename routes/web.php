@@ -3,12 +3,19 @@
 use App\Http\Controllers\DemoBookingController;
 use App\Http\Controllers\DemoLeadController;
 use App\Http\Controllers\SiteEventController;
+use App\Http\Controllers\SitePreviewController;
 use App\Http\Middleware\EnsureDemoIsUnlocked;
+use App\Http\Middleware\RequireSitePreviewPassword;
 use Illuminate\Support\Facades\Route;
 
+// Private until the marketing launch: asks for a password (see RequireSitePreviewPassword).
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->middleware(RequireSitePreviewPassword::class)->name('home');
+
+Route::post('/preview-access', [SitePreviewController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('site-preview.store');
 
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/contact', 'pages.contact')->name('contact');

@@ -123,4 +123,18 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Homepage Preview Password
+    |--------------------------------------------------------------------------
+    |
+    | While the marketing launch is being planned, the homepage asks for a
+    | password. This is a bcrypt hash of that password, never the password
+    | itself. Set SITE_PREVIEW_PASSWORD_HASH to a new hash to change it, or
+    | to an empty value to open the homepage to the public.
+    |
+    */
+
+    'preview_password_hash' => env('SITE_PREVIEW_PASSWORD_HASH', '$2y$12$pQBmLK/9gU9nW7qYtCdYJ.NbyVvWKNOXFHERrLcgx3C3MGMCQvff6'),
+
 ];
