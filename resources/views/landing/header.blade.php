@@ -7,7 +7,11 @@
             <span class="hidden items-center rounded-full bg-surface-container px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant sm:inline-flex">PH</span>
         </div>
 
-        <nav class="hidden items-center gap-space-lg md:flex">
+        <nav class="hidden items-center gap-space-md whitespace-nowrap md:flex lg:gap-space-lg">
+            <a href="https://ziontek.co" class="inline-flex items-center gap-1 border-r border-outline-variant pr-space-md font-body-md text-body-md text-on-surface-variant transition-colors hover:text-primary lg:pr-space-lg" title="Back to the ZionTek main site">
+                <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                ZionTek
+            </a>
             <a href="{{ url('/') }}#features" class="font-body-md text-body-md text-on-surface-variant transition-colors hover:text-on-surface">Features</a>
             <a href="{{ url('/') }}#how-it-works" class="font-body-md text-body-md text-on-surface-variant transition-colors hover:text-on-surface">How It Works</a>
             <a href="{{ url('/') }}#faq" class="font-body-md text-body-md text-on-surface-variant transition-colors hover:text-on-surface">FAQ</a>
@@ -15,10 +19,12 @@
 
         <div class="flex shrink-0 items-center gap-space-md">
             <a href="{{ url('/') }}#features" class="hidden items-center px-space-sm py-space-xs font-body-md text-body-md text-on-surface-variant transition-colors hover:text-on-surface lg:inline-flex">Explore Features</a>
-            <a href="{{ route('demo.how-it-works') }}" data-try-it class="bg-success-gradient hidden items-center gap-1 rounded-full px-4 py-2.5 font-label-md text-label-md text-white shadow-xs transition-opacity hover:opacity-95 sm:inline-flex">
-                <span class="material-symbols-outlined text-[18px]">play_circle</span>
-                Try it!
-            </a>
+            @demo
+                <a href="{{ route('demo.how-it-works') }}" data-try-it class="bg-success-gradient hidden items-center gap-1 rounded-full px-4 py-2.5 font-label-md text-label-md text-white shadow-xs transition-opacity hover:opacity-95 sm:inline-flex">
+                    <span class="material-symbols-outlined text-[18px]">play_circle</span>
+                    Try it!
+                </a>
+            @enddemo
             <a href="{{ url('/') }}#demo" class="bg-brand-gradient inline-flex items-center justify-center rounded-full px-5 py-2.5 font-label-md text-label-md text-on-primary shadow-xs transition-opacity hover:opacity-95">Book a Free Demo</a>
             <div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary">
                 <span class="material-symbols-outlined text-[18px] text-on-primary">person</span>

@@ -13,6 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
  * Until the visitor submits the form, a gated page renders only its top (title, tabs and
  * KPI tiles) with the unlock form below; the rest is never rendered, so it is not in the
  * page source either. Pages read the shared $isDemoLocked flag to decide where to stop.
+ *
+ * DEMO_UNLOCK_FORM_ENABLED=false turns the form off and opens these modules to everyone.
  */
 class EnsureDemoIsUnlocked
 {
@@ -25,8 +27,16 @@ class EnsureDemoIsUnlocked
      */
     public function handle(Request $request, Closure $next): Response
     {
-        View::share('isDemoLocked', ! $request->session()->get(self::SESSION_KEY));
+        View::share('isDemoLocked', self::isLocked());
 
         return $next($request);
+    }
+
+    /**
+     * Whether the gated modules still need the unlock form for the current visitor.
+     */
+    public static function isLocked(): bool
+    {
+        return config('app.demo_unlock_form_enabled') && ! session(self::SESSION_KEY);
     }
 }

@@ -10,7 +10,7 @@
         ['key' => 'payroll', 'label' => 'Payroll', 'route' => 'demo.payroll', 'gated' => true],
         ['key' => 'client-billing', 'label' => 'Client Billing', 'route' => 'demo.client-billing', 'gated' => true],
     ];
-    $isUnlocked = (bool) session(\App\Http\Middleware\EnsureDemoIsUnlocked::SESSION_KEY);
+    $isUnlocked = ! \App\Http\Middleware\EnsureDemoIsUnlocked::isLocked();
     $nextModuleKey = $modules[array_search($active, array_column($modules, 'key')) + 1]['key'] ?? null;
 
     $sidebarGroups = [
@@ -62,11 +62,11 @@
             <nav data-tour="module-menu" class="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto py-1.5 [scrollbar-width:none] lg:justify-center-safe" aria-label="Demo modules">
                 @foreach ($modules as $module)
                     @if ($module['key'] === $active)
-                        <a href="{{ route($module['route']) }}" aria-current="page" class="shrink-0 rounded-full bg-white px-3.5 py-1 font-semibold text-red-700 shadow-sm">{{ $module['label'] }}</a>
+                        <a href="{{ route($module['route']) }}" aria-current="page" class="shrink-0 rounded-full bg-amber-300 px-3.5 py-1 font-semibold text-red-900 shadow-sm">{{ $module['label'] }}</a>
                     @elseif ($module['key'] === $nextModuleKey)
                         {{-- Teaches visitors to walk the menu one module at a time --}}
-                        <a href="{{ route($module['route']) }}" data-demo-next class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-amber-300 py-1 pr-3 pl-1 font-semibold text-red-900 shadow-md ring-2 ring-amber-100 transition hover:bg-amber-200">
-                            <span class="inline-flex items-center gap-0.5 rounded-full bg-red-700 px-2 py-0.5 text-[10px] font-bold tracking-wide text-white uppercase">
+                        <a href="{{ route($module['route']) }}" data-demo-next class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-red-950 py-1 pr-3 pl-1 font-semibold text-white shadow-md ring-2 ring-amber-300 transition hover:bg-black">
+                            <span class="inline-flex items-center gap-0.5 rounded-full bg-amber-300 px-2 py-0.5 text-[10px] font-bold tracking-wide text-red-950 uppercase">
                                 <span class="material-symbols-outlined animate-bounce text-[13px] motion-reduce:animate-none">touch_app</span>
                                 <span class="hidden sm:inline"><x-demo.t en="Tap next" tl="Susunod" /></span>
                             </span>

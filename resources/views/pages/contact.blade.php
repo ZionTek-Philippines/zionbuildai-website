@@ -83,10 +83,12 @@
                             Book a Free Demo
                             <span class="material-symbols-outlined ml-2 text-[18px]">calendar_month</span>
                         </a>
-                        <a href="{{ route('demo.how-it-works') }}" data-try-it class="inline-flex items-center justify-center rounded-full bg-white/15 px-7 py-3.5 font-label-md text-label-md font-bold text-on-primary ring-1 ring-white/30 transition-all hover:bg-white/25">
-                            <span class="material-symbols-outlined mr-2 text-[18px]">play_circle</span>
-                            Try the Live Demo
-                        </a>
+                        @demo
+                            <a href="{{ route('demo.how-it-works') }}" data-try-it class="inline-flex items-center justify-center rounded-full bg-white/15 px-7 py-3.5 font-label-md text-label-md font-bold text-on-primary ring-1 ring-white/30 transition-all hover:bg-white/25">
+                                <span class="material-symbols-outlined mr-2 text-[18px]">play_circle</span>
+                                Try the Live Demo
+                            </a>
+                        @enddemo
                     </div>
                 </div>
             </div>

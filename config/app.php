@@ -128,13 +128,38 @@ return [
     | Homepage Preview Password
     |--------------------------------------------------------------------------
     |
-    | While the marketing launch is being planned, the homepage asks for a
-    | password. This is a bcrypt hash of that password, never the password
-    | itself. Set SITE_PREVIEW_PASSWORD_HASH to a new hash to change it, or
-    | to an empty value to open the homepage to the public.
+    | While the marketing launch is being planned, the homepage can ask for a
+    | password. Turn it on with SITE_PREVIEW_ENABLED=true. The passwords, one
+    | per client, are managed in the admin panel under Homepage Passwords.
     |
     */
 
-    'preview_password_hash' => env('SITE_PREVIEW_PASSWORD_HASH', '$2y$12$pQBmLK/9gU9nW7qYtCdYJ.NbyVvWKNOXFHERrLcgx3C3MGMCQvff6'),
+    'preview' => [
+        'enabled' => (bool) env('SITE_PREVIEW_ENABLED', false),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | "Try it!" Live Demo
+    |--------------------------------------------------------------------------
+    |
+    | Set DEMO_DISABLED=true to hide every "Try it!" button and the demo popup,
+    | and to make the /demo pages return 404.
+    |
+    */
+
+    'demo_enabled' => ! env('DEMO_DISABLED', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Demo Unlock Form
+    |--------------------------------------------------------------------------
+    |
+    | Finances, Payroll and Client Billing ask for the visitor's details before
+    | they open. Set DEMO_UNLOCK_FORM_ENABLED=false to open them to everyone.
+    |
+    */
+
+    'demo_unlock_form_enabled' => (bool) env('DEMO_UNLOCK_FORM_ENABLED', true),
 
 ];

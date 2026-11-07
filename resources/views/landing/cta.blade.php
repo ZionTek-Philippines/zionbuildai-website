@@ -57,10 +57,12 @@
                             <p class="mt-2 max-w-sm font-body-md text-body-md text-on-surface-variant">
                                 Your demo request is in. Our team will reach out shortly to set a time that works for you.
                             </p>
-                            <a href="{{ route('demo.how-it-works') }}" data-try-it class="bg-success-gradient mt-6 inline-flex items-center justify-center rounded-full px-7 py-3 font-label-md text-label-md text-white shadow-md shadow-emerald-500/30 transition-all hover:opacity-95">
-                                <span class="material-symbols-outlined mr-2 text-[18px]">play_circle</span>
-                                Explore the live demo while you wait
-                            </a>
+                            @demo
+                                <a href="{{ route('demo.how-it-works') }}" data-try-it class="bg-success-gradient mt-6 inline-flex items-center justify-center rounded-full px-7 py-3 font-label-md text-label-md text-white shadow-md shadow-emerald-500/30 transition-all hover:opacity-95">
+                                    <span class="material-symbols-outlined mr-2 text-[18px]">play_circle</span>
+                                    Explore the live demo while you wait
+                                </a>
+                            @enddemo
                         </div>
                     @else
                         <div class="flex items-center gap-3">

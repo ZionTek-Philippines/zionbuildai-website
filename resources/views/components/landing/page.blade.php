@@ -36,6 +36,8 @@
         </main>
 
         @include('landing.footer')
-        @include('landing.try-it-modal')
+        @demo
+            @include('landing.try-it-modal')
+        @enddemo
     </body>
 </html>

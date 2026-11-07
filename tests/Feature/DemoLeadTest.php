@@ -92,3 +92,19 @@ test('locked modules are marked in the module tabs until unlocked', function () 
         ->get(route('demo.command-center'))
         ->assertDontSee('Unlock with a short form');
 });
+
+test('turning the unlock form off opens every gated module without asking for details', function (string $routeName, string $hiddenContent) {
+    config(['app.demo_unlock_form_enabled' => false]);
+
+    $this->get(route($routeName))
+        ->assertOk()
+        ->assertSee($hiddenContent)
+        ->assertSee('data-demo-guide', false)
+        ->assertDontSee('Unlock the full demo')
+        ->assertDontSee('name="mobile"', false)
+        ->assertDontSee('Unlock with a short form');
+})->with([
+    ['demo.finances', 'Spending is 5 points ahead of progress'],
+    ['demo.payroll', 'Mateo Cruz'],
+    ['demo.client-billing', 'CP-0000003'],
+]);

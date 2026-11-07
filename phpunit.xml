@@ -32,6 +32,8 @@
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
-        <env name="SITE_PREVIEW_PASSWORD_HASH" value=""/>
+        <env name="SITE_PREVIEW_ENABLED" value="false"/>
+        <env name="DEMO_DISABLED" value="false"/>
+        <env name="DEMO_UNLOCK_FORM_ENABLED" value="true"/>
     </php>
 </phpunit>

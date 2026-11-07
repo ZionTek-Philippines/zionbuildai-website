@@ -26,10 +26,12 @@
                     Book a Free Demo
                     <span class="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
                 </a>
-                <a href="{{ route('demo.how-it-works') }}" data-try-it class="bg-success-gradient inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 font-label-md text-label-md text-white shadow-md shadow-emerald-500/30 transition-all hover:opacity-95 sm:w-auto">
-                    <span class="material-symbols-outlined mr-2 text-[18px]">play_circle</span>
-                    Try it! Live Demo
-                </a>
+                @demo
+                    <a href="{{ route('demo.how-it-works') }}" data-try-it class="bg-success-gradient inline-flex w-full items-center justify-center rounded-full px-8 py-3.5 font-label-md text-label-md text-white shadow-md shadow-emerald-500/30 transition-all hover:opacity-95 sm:w-auto">
+                        <span class="material-symbols-outlined mr-2 text-[18px]">play_circle</span>
+                        Try it! Live Demo
+                    </a>
+                @enddemo
                 <a href="#features" class="inline-flex w-full items-center justify-center rounded-full bg-surface-container-lowest px-8 py-3.5 font-label-md text-label-md text-on-surface shadow-xs transition-colors hover:bg-surface-container-low sm:w-auto">
                     Explore Features
                     <span class="material-symbols-outlined ml-2 text-[18px]">expand_more</span>
@@ -37,8 +39,8 @@
             </div>
         </div>
 
-        {{-- The real demo Command Center (public/images/hero-command-center.jpg, captured from /demo); clicking it opens the live demo --}}
-        <a href="{{ route('demo.how-it-works') }}" data-try-it class="group relative mt-12 block lg:mt-16" aria-label="Try the live demo">
+        {{-- The real demo Command Center (public/images/hero-command-center.jpg, captured from /demo); clicking it opens the live demo unless DEMO_DISABLED --}}
+        <a @demo href="{{ route('demo.how-it-works') }}" data-try-it aria-label="Try the live demo" @enddemo class="group relative mt-12 block lg:mt-16">
             <div class="overflow-hidden rounded-2xl bg-surface-container-lowest shadow-2xl ring-1 ring-on-surface/5">
                 <div class="flex items-center gap-2 bg-surface-container-low px-4 py-3">
                     <span class="size-3 rounded-full bg-error"></span>
@@ -49,17 +51,19 @@
                 <img src="{{ asset('images/hero-command-center.jpg') }}" alt="ZionBuild Command Center: contract price, project cost, earnings, net cash, client payments, payroll and expenses for one project" width="2160" height="1410" class="w-full">
             </div>
 
-            <span class="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 rounded-b-2xl bg-linear-to-t from-surface via-surface/70 to-transparent"></span>
+            @demo
+                <span class="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 rounded-b-2xl bg-linear-to-t from-surface via-surface/70 to-transparent"></span>
 
-            <span class="absolute inset-x-0 bottom-8 flex justify-center sm:bottom-12">
-                <span class="relative inline-flex">
-                    <span class="absolute inset-0 animate-ping rounded-full bg-emerald-500/40 motion-reduce:hidden"></span>
-                    <span class="bg-success-gradient relative inline-flex items-center rounded-full px-8 py-4 font-label-md text-base font-semibold text-white shadow-xl shadow-emerald-600/40 ring-4 ring-white/70 transition-transform group-hover:scale-105 sm:px-10 sm:text-lg">
-                        <span class="material-symbols-outlined mr-2 text-[22px]">play_circle</span>
-                        Try it! Live Demo
+                <span class="absolute inset-x-0 bottom-8 flex justify-center sm:bottom-12">
+                    <span class="relative inline-flex">
+                        <span class="absolute inset-0 animate-ping rounded-full bg-emerald-500/40 motion-reduce:hidden"></span>
+                        <span class="bg-success-gradient relative inline-flex items-center rounded-full px-8 py-4 font-label-md text-base font-semibold text-white shadow-xl shadow-emerald-600/40 ring-4 ring-white/70 transition-transform group-hover:scale-105 sm:px-10 sm:text-lg">
+                            <span class="material-symbols-outlined mr-2 text-[22px]">play_circle</span>
+                            Try it! Live Demo
+                        </span>
                     </span>
                 </span>
-            </span>
+            @enddemo
         </a>
     </div>
 </section>
